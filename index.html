@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WishUponACard.org - A magical platform where children can request birthday cards and gifts with parental supervision. Join our community of caring gift-givers.">
+    <meta name="keywords" content="birthday cards, children gifts, birthday wishes, family platform, gift giving">
+    <title>WishUponACard.org - Making Birthday Wishes Come True</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQDWSTTTW1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PQDWSTTTW1'); // Replace with your Google Analytics ID
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #FFA8C5;
+            --accent: #FFD93D;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo::before {
+            content: "🎂";
+            font-size: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin: 2rem auto;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 217, 61, 0.3);
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 217, 61, 0.4);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .step-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .feature-content {
+            padding: 2rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .submit-button {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 217, 61, 0.4);
+        }
+        
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        
+        .form-message.success {
+            background: rgba(72, 187, 120, 0.2);
+            color: #2F855A;
+        }
+        
+        .form-message.error {
+            background: rgba(245, 101, 101, 0.2);
+            color: #C53030;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #CBD5E0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #4A5568;
+            color: #A0AEC0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .submit-button {
+                width: 100%;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">WishUponACard.org</div>
+                <nav>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#features">Features</a>
+                    <a href="#join">Join Waitlist</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Making Birthday Wishes Come True ✨</h1>
+                <p>A safe, joyful platform where children can request birthday cards and receive gifts from caring community members, all with parental supervision.</p>
+                <img src="6d367b99-6315-4c45-9c27-62d69a74d421.jpeg" alt="Child receiving birthday gift" class="hero-image" id="heroImage" />
+                <br><br>
+                <a href="#join" class="cta-button">Join Our Waitlist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">👨‍👩‍👧</div>
+                    <h3>Parents Create Account</h3>
+                    <p>Parents or guardians create a secure account and set up their child's profile with full supervision and control.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎂</div>
+                    <h3>Children Make Wishes</h3>
+                    <p>With parental guidance, children can create their birthday wish list for cards and appropriate gifts.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">💝</div>
+                    <h3>Community Gives</h3>
+                    <p>Verified community members can browse wishes and send heartfelt birthday cards and gifts to make children smile.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎉</div>
+                    <h3>Joy Delivered</h3>
+                    <p>Every card and gift is received with joy, creating magical birthday memories that last a lifetime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose WishUponACard?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="74e165ae-a34e-4db8-a188-8ebd858e394a.jpeg" alt="Safe gift giving" class="feature-image" id="featureImage1" />
+                    <div class="feature-content">
+                        <h3>🛡️ Safe & Secure</h3>
+                        <p>Complete parental control and supervision. All interactions are monitored to ensure a safe environment for children.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="97a5e65f-34c6-410b-b61a-8df6d0673b33.jpeg" alt="Community connection" class="feature-image" id="featureImage2" />
+                    <div class="feature-content">
+                        <h3>🤝 Verified Community</h3>
+                        <p>All gift-givers go through a verification process to ensure a trustworthy and caring community.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="4225f418-5717-4ec1-bab2-d51bec595914.jpeg" alt="Meaningful connections" class="feature-image" id="featureImage3" />
+                    <div class="feature-content">
+                        <h3>💌 Meaningful Connections</h3>
+                        <p>Foster kindness and generosity by connecting children with people who want to make their birthdays special.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter" id="join">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Be the First to Know! 🎈</h2>
+                <p>Join our waitlist and be notified when WishUponACard.org launches. Help us create a world where every child's birthday is magical.</p>
+                <form class="email-form" id="emailForm">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email address" 
+                        class="email-input"
+                        id="emailInput"
+                        required
+                    >
+                    <button type="submit" class="submit-button" id="submitButton">
+                        Notify Me
+                    </button>
+                </form>
+                <div id="formMessage"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About WishUponACard</h3>
+                    <p>Creating magical birthday moments for children through the power of community kindness.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#features">Features</a>
+                    <a href="#join">Join Waitlist</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: hello@wishuponacard.org</p>
+                    <p>We'd love to hear from you!</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 WishUponACard.org. All rights reserved. Making birthdays magical, one card at a time. 🎂</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase Integration Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Initialize Supabase
+        // REPLACE WITH YOUR SUPABASE CREDENTIALS
+        const SUPABASE_URL = 'https://xhswiizneqphltobsxkw.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhoc3dpaXpuZXFwaGx0b2JzeGt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxNzI5NTEsImV4cCI6MjA3Mjc0ODk1MX0.HiZZ1RTSqOf0dbc9xBbmWGaaEKaI1bM3GtCxOcdMABI';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        // Handle form submission
+        document.getElementById('emailForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('emailInput');
+            const submitButton = document.getElementById('submitButton');
+            const formMessage = document.getElementById('formMessage');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Subscribing...';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+            
+            try {
+                // Insert email into Supabase
+                const { data, error } = await supabase
+                    .from('wishuponacard_subscribers')
+                    .insert([
+                        { 
+                            email: email,
+                            subscribed_at: new Date().toISOString(),
+                            source: 'landing_page'
+                        }
+                    ]);
+                
+                if (error) {
+                    // Check if it's a duplicate email error
+                    if (error.code === '23505') {
+                        showMessage('This email is already subscribed! 🎉', 'success');
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    showMessage('Success! You\'re on the waitlist! 🎉', 'success');
+                    emailInput.value = '';
+                    
+                    // Track conversion in Google Analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'subscribe', {
+                            'event_category': 'Newsletter',
+                            'event_label': 'Waitlist Signup',
+                            'value': email
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error subscribing:', error);
+                showMessage('Oops! Something went wrong. Please try again.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Notify Me';
+            }
+        });
+        
+        function showMessage(message, type) {
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+        }
+        
+        // Track page view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'WishUponACard Landing Page',
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        }
+        
+        // Track button clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'CTA',
+                        'event_label': button.textContent,
+                        'value': 1
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <script>
+        // // Load images asynchronously
+        // async function loadImages() {
+        //     const images = [
+        //         { id: 'heroImage', file: 'img1_inline.txt' },
+        //         { id: 'featureImage1', file: 'img2_inline.txt' },
+        //         { id: 'featureImage2', file: 'img3_inline.txt' }
+        //     ];
+            
+        //     // This is a placeholder - in production, the base64 will be embedded
+        //     // For now, we'll use the placeholder structure
+        // }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
