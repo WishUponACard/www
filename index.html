@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="WishUponACard.org - Supporting children with serious health conditions through birthday cards and gifts. A verified platform connecting compassionate givers with families in need.">
     <meta name="keywords" content="birthday cards, children gifts, birthday wishes, family platform, gift giving">
-    <title>WishUponACard.org - Making Birthday Wishes Come True</title>
+    <title>WishUponACard.org - Where Wishes Become Help</title>
+    <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQDWSTTTW1"></script>
@@ -71,10 +72,10 @@
             gap: 10px;
         }
         
-        .logo::before {
+        /* .logo::before {
             content: "🎂";
             font-size: 2rem;
-        }
+        } */
         
         nav a {
             color: white;
@@ -393,6 +394,12 @@
         .footer-section a:hover {
             color: var(--accent);
         }
+
+        .social-links {
+            text-align: center;
+            position: relative;
+            display: block;
+        }
         
         .copyright {
             margin-top: 2rem;
@@ -434,7 +441,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">WishUponACard.org</div>
+                <div class="logo" style="display: flex; align-items: center;">
+                    <img src="logo.png" alt="Wish Upon A Card" style="height: 50px; width: auto;" />
+                </div>
                 <nav>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#features">Features</a>
@@ -497,22 +506,22 @@
                 </p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: #FFF5F7; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--primary);">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;">✓ Eligible Families</h3>
+                <div style="background: #F0F9F4; padding: 2rem; border-radius: 15px; border-left: 4px solid #41B883;">
+                    <h3 style="color: #41B883; margin-bottom: 1rem; font-size: 1.3rem;">✓ Eligible Families</h3>
                     <p style="color: #666; line-height: 1.8;">
                         Children currently undergoing treatment for serious illnesses, chronic conditions, or facing long-term health challenges. 
                         Medical documentation required during application.
                     </p>
                 </div>
-                <div style="background: #F0F4FF; padding: 2rem; border-radius: 15px; border-left: 4px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.3rem;">⚠️ Important Notice</h3>
+                <div style="background: #F0F4F8; padding: 2rem; border-radius: 15px; border-left: 4px solid #35495E;">
+                    <h3 style="color: #35495E; margin-bottom: 1rem; font-size: 1.3rem;">⚠️ Important Notice</h3>
                     <p style="color: #666; line-height: 1.8;">
                         This is <strong>not</strong> a general birthday wish platform. We carefully verify each family's circumstances 
                         to ensure our resources support children truly in need.
                     </p>
                 </div>
-                <div style="background: #FFFBEB; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--accent);">
-                    <h3 style="color: #D69E2E; margin-bottom: 1rem; font-size: 1.3rem;">💛 Our Commitment</h3>
+                <div style="background: #F0F9F4; padding: 2rem; border-radius: 15px; border-left: 4px solid #41B883;">
+                    <h3 style="color: #41B883; margin-bottom: 1rem; font-size: 1.3rem;">💛 Our Commitment</h3>
                     <p style="color: #666; line-height: 1.8;">
                         Every birthday card and gift goes to a child facing real health battles, ensuring your generosity 
                         makes a meaningful impact where it's needed most.
@@ -580,7 +589,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>About WishUponACard</h3>
+                    <div>
+                        <img src="logo.png" alt="Wish Upon A Card" style="height: 50px; width: auto;" />
+                        <p style="display: none;">About WishUponACard</p>
+                    </div>
                     <p>Supporting children with serious health conditions by bringing joy, hope, and birthday celebrations during their toughest battles.</p>
                 </div>
                 <div class="footer-section">
@@ -593,6 +605,23 @@
                     <h3>Contact</h3>
                     <p>Email: hello@wishuponacard.org</p>
                     <p>We'd love to hear from you!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://x.com/WishUponCard" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            X (Twitter)
+                        </a>
+                        <a href="https://www.instagram.com/wishuponcard" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; gap: 8px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="copyright">
